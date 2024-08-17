@@ -11,6 +11,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.input-part {
+  display: flex;
+  gap: 15px;
+
+  margin: auto;
+}
+
 /* Style for the header */
 .header {
   display: flex;

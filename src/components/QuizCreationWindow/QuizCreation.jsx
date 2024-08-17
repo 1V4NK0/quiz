@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import "./Quiz.css";
+import React, { useEffect } from "react";
+import "./QuizCreation.css";
 
 export default function QuizCreation({
-  setMoveToQuiz,
+  setMoveToQuizCreation,
   onSubmit,
   questionsArr,
   questionCounter,
@@ -19,14 +19,18 @@ export default function QuizCreation({
   useEffect(() => {
     console.log(questionsArr);
   }, [questionsArr]);
+
   return (
     <div className="quiz-container">
       <div className="header">
-        <button className="escape" onClick={() => setMoveToQuiz(false)}>
+        <button className="escape" onClick={() => setMoveToQuizCreation(false)}>
           X
         </button>
         <p>Create your quiz! </p>
-        <button className="forward" onClick={() => onHandleFinish()}>
+        <button
+          className="forward"
+          onClick={() => onHandleFinish()} // onHandleFinish is called here
+        >
           →
         </button>
       </div>
@@ -40,27 +44,36 @@ export default function QuizCreation({
         />
 
         <label>Answer #1</label>
-        <input
-          type="text"
-          value={answ1}
-          onChange={(e) => setAnsw1(e.target.value)}
-        />
+        <div className="input-part">
+          <input
+            type="text"
+            value={answ1}
+            onChange={(e) => setAnsw1(e.target.value)}
+          />
+          <input type="radio" name="correct" id="" />
+        </div>
 
         <label>Answer #2</label>
-        <input
-          type="text"
-          value={answ2}
-          onChange={(e) => setAnsw2(e.target.value)}
-        />
+        <div className="input-part">
+          <input
+            type="text"
+            value={answ2}
+            onChange={(e) => setAnsw2(e.target.value)}
+          />
+          <input type="radio" name="correct" id="" />
+        </div>
 
         <label>Answer #3</label>
-        <input
-          type="text"
-          value={answ3}
-          onChange={(e) => setAnsw3(e.target.value)}
-        />
+        <div className="input-part">
+          <input
+            type="text"
+            value={answ3}
+            onChange={(e) => setAnsw3(e.target.value)}
+          />
+          <input type="radio" name="correct" id="" />
+        </div>
 
-        <button>Add question</button>
+        <button type="submit">Add question</button>
       </form>
     </div>
   );
