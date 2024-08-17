@@ -1,0 +1,121 @@
+/* Style for the quiz container */
+.quiz-container {
+  margin: auto;
+  margin-top: 5%;
+  background: #5a3e96;
+  color: white;
+  width: 600px;
+  height: 500px;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  height: 40px;
+  background-color: #c19ce5;
+  border-radius: 20px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.header p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Style for the escape button */
+.escape {
+  width: 30px;
+  height: 30px; /* Adjusted height to match the header's height */
+  background: #e83f5b;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.escape:hover {
+  background: #d6365e;
+}
+
+/* Style for the input container */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.forward {
+  width: 30px;
+  height: 30px; /* Adjusted height to match the header's height */
+  background: #3f61e8;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.input-container input {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background: #ffffff;
+  width: 400px;
+}
+
+.input-container input:focus {
+  border-color: #6c5b9a;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the add question button */
+.input-container button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 160px;
+  height: 60px;
+  cursor: pointer;
+  align-self: flex-start;
+  font-weight: bold;
+  transition: 0.2s ease;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.input-container button:hover {
+  background: #c19ce5;
+}
+
+.input-container button:active {
+  background: #987cb5;
+}
