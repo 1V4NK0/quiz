@@ -11,6 +11,7 @@ function App() {
   const [answ3, setAnsw3] = useState("");
   const [finishQuiz, setFinishQuiz] = useState(false);
   const [quizData, setQuizData] = useState([]); 
+  const [correctAnsw, setCorrectAnsw] = useState(0);
 
   let questionCounter = useRef(1);
 
@@ -23,6 +24,7 @@ function App() {
     }
 
     const questionObj = {
+      correctAnsw,
       question,
       answ1,
       answ2,
@@ -81,6 +83,7 @@ function App() {
           onHandleFinish={handleFinishQuiz}
           quizData={quizData}
           setQuizData={setQuizData}
+          setCorrectAnsw={setCorrectAnsw}
         />
       ) : (
         <MainScreen
