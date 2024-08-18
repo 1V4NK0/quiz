@@ -37,7 +37,7 @@ button {
 
 .main-screen-quizes {
   background-color: #c19ce5;
-  height: 70vh;
+  height: auto;
   text-align: center;
   width: 90%;
   margin: auto;

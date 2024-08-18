@@ -10,10 +10,40 @@ function App() {
   const [answ2, setAnsw2] = useState("");
   const [answ3, setAnsw3] = useState("");
   const [finishQuiz, setFinishQuiz] = useState(false);
-  const [quizData, setQuizData] = useState([]); 
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
+
+  const [quizData, setQuizData] = useState(function () {
+    const storedValue = localStorage.getItem("quizes");
+    if (storedValue) {
+      try {
+        return JSON.parse(storedValue);
+      } catch (e) {
+        console.error("Error parsing quiz data from localStorage:", e);
+        return [];
+      }
+    }
+
+    return [];
+  });
   const [correctAnsw, setCorrectAnsw] = useState(0);
 
   let questionCounter = useRef(1);
+
+  function handleDelete(quizToDelete) {
+    const confirmation = window.confirm(
+      `Are you sure you want to delete the quiz "${quizToDelete.name}"?`
+    );
+
+    if (confirmation) {
+      setQuizData((prevQuizData) =>
+        prevQuizData.filter((quiz) => quiz.name !== quizToDelete.name)
+      );
+
+      setMoveToQuizCreation(false);
+      setFinishQuiz(true);
+      setSelectedQuiz(null);
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -90,6 +120,9 @@ function App() {
           setMoveToQuizCreation={setMoveToQuizCreation}
           finishQuiz={finishQuiz}
           quizData={quizData} // Pass quizData to MainScreen
+          onDelete={handleDelete}
+          setSelectedQuiz={setSelectedQuiz}
+          selectedQuiz={selectedQuiz}
         />
       )}
     </div>

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./MainScreen.css";
 import Quiz from "../Quiz/Quiz";
+import App from "../../App";
 
 export default function MainScreen({
   setMoveToQuizCreation,
   finishQuiz,
   quizData,
+  onDelete,
+  setSelectedQuiz,
+  selectedQuiz,
 }) {
-  const [selectedQuiz, setSelectedQuiz] = useState(null);
-
   return (
     <div className="main-screen">
       {selectedQuiz !== null && quizData[selectedQuiz] ? (
@@ -16,7 +18,7 @@ export default function MainScreen({
           <button onClick={() => setSelectedQuiz(null)} className="back-button">
             Back to Quizzes
           </button>
-          <Quiz quiz={quizData[selectedQuiz] || []} />
+          <Quiz quiz={quizData[selectedQuiz] || []} onDelete={onDelete} />
         </div>
       ) : finishQuiz ? (
         <div className="main-screen-quizes">

@@ -56,6 +56,7 @@ export default function QuizCreation({
             name="correct"
             id="0"
             onChange={() => setCorrectAnsw(0)}
+            required
           />
         </div>
 
@@ -71,6 +72,7 @@ export default function QuizCreation({
             name="correct"
             id="1"
             onChange={() => setCorrectAnsw(1)}
+            required
           />
         </div>
 
@@ -86,6 +88,7 @@ export default function QuizCreation({
             name="correct"
             id="2"
             onChange={() => setCorrectAnsw(2)}
+            required
           />
         </div>
 
