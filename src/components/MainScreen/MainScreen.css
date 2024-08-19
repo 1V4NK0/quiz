@@ -90,6 +90,11 @@ button {
   flex-direction: column;
   justify-content: space-evenly;
   font-size: 16px;
+  transition: 0.2s;
+}
+
+.quiz-card:hover {
+  background-color: #d9cfe5;
 }
 
 button:active {
