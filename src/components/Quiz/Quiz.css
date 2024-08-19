@@ -36,6 +36,14 @@
   border-radius: 15px;
 }
 
+.quiz .correct {
+    background: green;
+}
+
+.quiz .wrong {
+    background: red;
+}
+
 .quiz p:hover {
   background-color: #5a3e96;
   color: white;

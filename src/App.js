@@ -48,8 +48,8 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (questionsArr.length >= 2) {
-      alert("You cannot add more than 2 questions.");
+    if (questionsArr.length >= 10) {
+      alert("You cannot add more than 10 questions.");
       return;
     }
 

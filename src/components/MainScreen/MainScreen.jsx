@@ -20,7 +20,7 @@ export default function MainScreen({
           </button>
           <Quiz quiz={quizData[selectedQuiz] || []} onDelete={onDelete} />
         </div>
-      ) : finishQuiz ? (
+      ) : finishQuiz || quizData.length >= 1 ? (
         <div className="main-screen-quizes">
           <h1>Your Quizzes</h1>
           <div className="quizzes">

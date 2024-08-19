@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRef } from "react";
 import "./Quiz.css";
 
 export default function Quiz({ quiz, onDelete }) {
   const handleDelete = () => {
     onDelete(quiz);
   };
+  let [correctAnswCounter, setCorrectAnswCounter] = useState(0);
 
-  const checkAnswer = (chosenAnswer, questionIndex) => {
+  const checkAnswer = (e, chosenAnswer, questionIndex) => {
     // Retrieve the question from the quiz
     const question = quiz.questions[questionIndex];
 
@@ -21,34 +23,38 @@ export default function Quiz({ quiz, onDelete }) {
 
     // Check if the chosen index matches the correct index
     if (chosenIndex === correctIndex) {
-      console.log("Correct answer!");
-      alert("Correct!");
+      e.target.classList.add("correct");
+      setCorrectAnswCounter(correctAnswCounter + 1);
       // Optionally, you can update the state to show feedback to the user
     } else {
-      console.log("Incorrect answer.");
-      alert("Wrong!");
+      e.target.classList.add("wrong");
+
       // Optionally, you can update the state to show feedback to the user
     }
   };
+
   return (
     <div className="quiz">
       <h1>{quiz.name}</h1>
+      <h4>
+        {correctAnswCounter} correct out of {quiz.questions.length}
+      </h4>
       {quiz.questions.map((question, index) => (
         <div key={index}>
           <h3>
             {index + 1}. {question.question}
           </h3>
           <p
-            onClick={() => {
-              checkAnswer(question.answ1, index);
+            onClick={(e) => {
+              checkAnswer(e, question.answ1, index);
             }}
           >
             {question.answ1}
           </p>
-          <p onClick={() => checkAnswer(question.answ2, index)}>
+          <p onClick={(e) => checkAnswer(e, question.answ2, index)}>
             {question.answ2}
           </p>
-          <p onClick={() => checkAnswer(question.answ3, index)}>
+          <p onClick={(e) => checkAnswer(e, question.answ3, index)}>
             {question.answ3}
           </p>
         </div>
